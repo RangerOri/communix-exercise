@@ -1,0 +1,13 @@
+*.vsidx
+*.sln
+.vs*
+obj/*
+Logs/*
+Temp/*
+Library/*
+UserSettings/*
+Assets/Editor*
+Assets/External*
+Assets/Firebase*
+Assets/Plugins*
+Assets/Firebase/Plugins/Firebase.App.dll.meta
