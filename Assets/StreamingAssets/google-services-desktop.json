@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "37515012465",
+    "project_id": "communix-exercise",
+    "storage_bucket": "communix-exercise.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37515012465:android:94b70c5acd6b0ea5a4eed0",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.communix_exercise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1E4XMnD7DZ4deXwXnyFCVisyvOMJnHUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
