@@ -1,8 +1,7 @@
 # communix-exercise
 
-This exercise was created by the Communix company.
-The goal is to adjust the Bricks game.
-To showcase a flow from a firebase project towards gameplay, changing text in runtime via a remote json file update.
+This exercise was created by the Communix company.\
+The goal is to adjust the Bricks game and to showcase a flow from a firebase project towards gameplay, changing text in runtime via a remote json file update.
 
 
 ## Prerequisites
@@ -13,13 +12,13 @@ To showcase a flow from a firebase project towards gameplay, changing text in ru
 
 ## Usage
 
-Two scenes are in the game.
-Menu, Game
-The RemoteConfig changes the text in the Menu scene.
+Two scenes are in the game.\
+Menu, Game\
+The RemoteConfig changes the text in the Menu scene through async.
 
 ## Deployment
 
-Make sure everything is ready before running, the github repo holds the JSON lib, but none of the firebase packages.
+The github repo holds the JSON lib, but none of the firebase packages, only the google-services.json.
 
 ### Also
 
