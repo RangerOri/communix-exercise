@@ -19,9 +19,7 @@ public class RemoteConfiguration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // These are the values that are used if we haven't fetched data from the
-        // server
-        // yet, or if we ask for values that the server doesn't have:
+        //This us the RemoteConfig example, not the JSON load that was required
         defaults.Add("config_test_string", "default local string");
         defaults.Add("config_test_int", 1);
         defaults.Add("config_test_float", 1.0);
@@ -30,6 +28,8 @@ public class RemoteConfiguration : MonoBehaviour
         FirebaseRemoteConfig.DefaultInstance.SetDefaultsAsync(defaults)
           .ContinueWithOnMainThread(task => { FetchDataAsync(); });
 
+
+        //This is the exercise requirement, to load a JSON file with data and unpack it (uses FirebaseStorage)
         FirebaseStorage storage = FirebaseStorage.GetInstance("gs://communix-exercise.appspot.com");
         StorageReference reference = storage.GetReference("mainConfigurations.json");
 
@@ -48,12 +48,6 @@ public class RemoteConfiguration : MonoBehaviour
         });
     }
 
-    // Start a fetch request.
-    // FetchAsync only fetches new data if the current data is older than the provided
-    // timespan.  Otherwise it assumes the data is "recent enough", and does nothing.
-    // By default the timespan is 12 hours, and for production apps, this is a good
-    // number. For this example though, it's set to a timespan of zero, so that
-    // changes in the console will always show up immediately.
     public Task FetchDataAsync()
     {
         Debug.Log("Fetching data...");
@@ -88,6 +82,7 @@ public class RemoteConfiguration : MonoBehaviour
             });
     }
 
+    //Get request for the downloaded data
     IEnumerator GetRequest(string uri)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
@@ -110,9 +105,9 @@ public class RemoteConfiguration : MonoBehaviour
                 case UnityWebRequest.Result.Success:
                     Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
 
-                    //JSONify the result
+                    //Parse the JSON data
                     JObject jsonData = JObject.Parse(webRequest.downloadHandler.text);
-                    textToUpdate.text += "\nText from remote config file: " + jsonData["text"];
+                    textToUpdate.text += "\nText from remote config file: " + jsonData["text"]; //I know there's a 'text' field with information in the json file
                     break;
             }
         }
